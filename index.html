@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarto 214</title>
+    <!-- Incluindo Tailwind CSS para estilos modernos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Configuração personalizada do Tailwind para um visual mais suave -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="flex flex-col min-h-screen" style="background-color: powderblue;">
+
+
+    <!-- Seção de Cabeçalho -->
+    <div class="container mx-auto px-4 py-8 text-center">
+        <div class="space-y-2 mb-8">
+            <h1 class="text-4xl font-extrabold text-gray-800">Bem-vindo</h1>
+            <p class="text-xl text-gray-600">Temos delivery</p>
+            <p class="text-xl text-gray-600">Aceitamos cartões</p>
+            <p class="text-2xl font-bold text-gray-800 mt-4">Temos:</p>
+        </div>
+
+        <!-- Contêiner principal onde os produtos serão gerados via JavaScript -->
+        <div id="produtos-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Os cards dos produtos serão inseridos aqui -->
+        </div>
+    </div>
+
+    <!-- Seção do Rodapé e Carrinho -->
+    <div class="mt-auto py-12 bg-gray text-center rounded-t-3xl shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-bold text-gray-700">Venha logo antes que acabe, se você não comprar, só você que não vai se alimentar.</h1>
+            
+            <div class="mt-8 space-y-4">
+                <h2 class="text-xl font-semibold text-gray-600">Para delivery</h2>
+                <div class="flex flex-col items-center space-y-2">
+                    <label for="nome" class="text-lg">Nome</label>
+                    <input type="text" placeholder="Nome" id="nome" required class="p-2 border rounded-md shadow-sm w-full max-w-sm">
+                    <label for="quarto" class="text-lg">Quarto</label>
+                    <input type="text" placeholder="Nº do Quarto e o Residencial" id="quarto" required class="p-2 border rounded-md shadow-sm w-full max-w-sm">
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-800 mt-8">Carrinho</h2>
+            <div class="mt-4 p-5">
+                <ul id="lista-nomes" class="space-y-2 text-left w-full max-w-lg mx-auto">
+                    <!-- Itens do carrinho serão adicionados aqui -->
+                </ul>
+            </div>
+
+            <!-- Total do Carrinho -->
+            <div class="py-4 bg-gray-200 text-gray-800 rounded-lg max-w-md mx-auto mt-4">
+                <h4 class="text-xl font-bold">Total: <span id="totalValue">R$ 0,00</span></h4>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center mt-6 space-y-4 sm:space-y-0 sm:space-x-4">
+                <!-- Botão para remover todos os produtos -->
+                <button id="remover-tudo-btn" class="btn-remover">
+                    Remover Todos
+                </button>
+                <button type="submit" id="enviar-pedido-btn" class="btn-enviar">
+                    Enviar pedido
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Link para o arquivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>
