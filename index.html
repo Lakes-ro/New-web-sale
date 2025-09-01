@@ -78,8 +78,26 @@
         </div>
     </div>
     
-    <!-- Link para o arquivo JavaScript externo -->
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  const supabaseUrl = "https://wmfhlxsbcupmhrfxdzo.supabase.co"
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." // anon public
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey)
+
+  async function carregarDados() {
+    const { data, error } = await supabase.from("sua_tabela").select("*")
+    if (error) {
+      console.error(error)
+    } else {
+      console.log(data)
+    }
+  }
+
+  carregarDados()
+</script>
+
+    
 </body>
 </html>
+
 
